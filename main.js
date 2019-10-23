@@ -2,6 +2,8 @@ function tokenize(input) {
   return Array.from(input);
 }
 
+const size = 100;
+
 function parse(tokens) {
   let head = tokens.shift();
   if(head === undefined) return [];
@@ -21,7 +23,7 @@ function parse(tokens) {
     right.style.position = "absolute";
     right.style.transform = "scale(0.5, 1)";
     right.style.top = "0";
-    right.style.left = "25px";
+    right.style.left = (size * 0.5) + "px";
 
     node.appendChild(left);
     node.appendChild(right);
@@ -40,7 +42,7 @@ function parse(tokens) {
 
     below.style.position = "absolute";
     below.style.transform = "scale(1, 0.5)";
-    below.style.top = "25px";
+    below.style.top = (size * 0.5) + "px";
     below.style.left = "0";
 
     node.appendChild(above);
@@ -62,12 +64,12 @@ function parse(tokens) {
     middle.style.position = "absolute";
     middle.style.transform = "scale(0.4, 1)";
     middle.style.top = "0";
-    middle.style.left = "15px";
+    middle.style.left = (size * 0.3) + "px";
 
     right.style.position = "absolute";
     right.style.transform = "scale(0.4, 1)";
     right.style.top = "0";
-    right.style.left = "30px";
+    right.style.left = (size * 0.6) + "px";
 
     node.appendChild(left);
     node.appendChild(middle);
@@ -88,12 +90,12 @@ function parse(tokens) {
 
     middle.style.position = "absolute";
     middle.style.transform = "scale(1, 0.4)";
-    middle.style.top = "15px";
+    middle.style.top = (size * 0.3) + "px";
     middle.style.left = "0";
 
     below.style.position = "absolute";
     below.style.transform = "scale(1, 0.4)";
-    below.style.top = "30px";
+    below.style.top = (size * 0.6) + "px";
     below.style.left = "0";
 
     node.appendChild(above);
@@ -114,8 +116,8 @@ function parse(tokens) {
 
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.6, 0.6)";
-    inside.style.top = "10px";
-    inside.style.left = "10px";
+    inside.style.top = (size * 0.2) + "px";
+    inside.style.left = (size * 0.2) + "px";
 
     node.appendChild(outside);
     node.appendChild(inside);
@@ -134,8 +136,8 @@ function parse(tokens) {
 
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.6, 0.8)";
-    inside.style.top = "10px";
-    inside.style.left = "10px";
+    inside.style.top = (size * 0.2) + "px";
+    inside.style.left = (size * 0.2) + "px";
 
     node.appendChild(outside);
     node.appendChild(inside);
@@ -155,7 +157,7 @@ function parse(tokens) {
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.6, 0.8)";
     inside.style.top = "0";
-    inside.style.left = "10px";
+    inside.style.left = (size * 0.2) + "px";
 
     node.appendChild(outside);
     node.appendChild(inside);
@@ -174,8 +176,8 @@ function parse(tokens) {
 
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.6, 0.8)";
-    inside.style.top = "10px";
-    inside.style.left = "10px";
+    inside.style.top = (size * 0.2) + "px";
+    inside.style.left = (size * 0.2) + "px";
 
     node.appendChild(outside);
     node.appendChild(inside);
@@ -194,8 +196,8 @@ function parse(tokens) {
 
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.8, 0.8)";
-    inside.style.top = "10px";
-    inside.style.left = "10px";
+    inside.style.top = (size * 0.2) + "px";
+    inside.style.left = (size * 0.2) + "px";
 
     node.appendChild(outside);
     node.appendChild(inside);
@@ -214,7 +216,7 @@ function parse(tokens) {
 
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.8, 0.8)";
-    inside.style.top = "10px";
+    inside.style.top = (size * 0.2) + "px";
     inside.style.left = "0";
 
     node.appendChild(outside);
@@ -235,7 +237,7 @@ function parse(tokens) {
     inside.style.position = "absolute";
     inside.style.transform = "scale(0.8, 0.8)";
     inside.style.top = "0";
-    inside.style.left = "10px";
+    inside.style.left = (size * 0.2) + "px";
 
     node.appendChild(outside);
     node.appendChild(inside);
