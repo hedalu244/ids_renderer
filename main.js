@@ -3,15 +3,15 @@ function tokenize(input) {
 }
 
 function parse(tokens) {
-  var head = tokens.shift();
+  let head = tokens.shift();
   if(head === undefined) return [];
-  var nodes = parse(tokens);
+  let nodes = parse(tokens);
 
   if (head === "\u2ff0") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var left = next(nodes);
-    var right = next(nodes);
+    let left = next(nodes);
+    let right = next(nodes);
 
     left.style.position = "absolute";
     left.style.transform = "scale(0.5, 1)";
@@ -28,10 +28,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff1") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var above = next(nodes);
-    var below = next(nodes);
+    let above = next(nodes);
+    let below = next(nodes);
 
     above.style.position = "absolute";
     above.style.transform = "scale(1, 0.5)";
@@ -48,11 +48,11 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff2") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var left = next(nodes);
-    var middle = next(nodes);
-    var right = next(nodes);
+    let left = next(nodes);
+    let middle = next(nodes);
+    let right = next(nodes);
 
     left.style.position = "absolute";
     left.style.transform = "scale(0.4, 1)";
@@ -75,11 +75,11 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff3") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var above = next(nodes);
-    var middle = next(nodes);
-    var below = next(nodes);
+    let above = next(nodes);
+    let middle = next(nodes);
+    let below = next(nodes);
 
     above.style.position = "absolute";
     above.style.transform = "scale(1, 0.4)";
@@ -102,10 +102,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff4") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -122,10 +122,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff5") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -142,10 +142,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff6") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -162,10 +162,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff7") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -182,10 +182,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff8") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -202,10 +202,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ff9") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -222,10 +222,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ffa") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var outside = next(nodes);
-    var inside = next(nodes);
+    let outside = next(nodes);
+    let inside = next(nodes);
 
     outside.style.position = "absolute";
     outside.style.transform = "scale(1, 1)";
@@ -242,10 +242,10 @@ function parse(tokens) {
     return [node, ...nodes];
   }
   else if (head === "\u2ffb") {
-    var node = document.createElement("div");
+    let node = document.createElement("div");
     node.classList.add("kanji");
-    var under = next(nodes);
-    var over = next(nodes);
+    let under = next(nodes);
+    let over = next(nodes);
 
     under.style.position = "absolute";
     under.style.transform = "scale(1, 1)";
@@ -283,7 +283,9 @@ function $(id) {return document.getElementById(id);}
 
 window.onload = () => {
   $("input").oninput = () => {
+    let input = $("input").value
     $("output").innerHTML = "";
-    parse(tokenize($("input").value)).forEach(x=>$("output").appendChild(x));
+    parse(tokenize(input)).forEach(x=>$("output").appendChild(x));
+    window.history.replaceState(null,null,"?s=" + encodeURIComponent(input));
   }
 }
