@@ -283,11 +283,25 @@ function parse(tokens) {
 
 function $(id) {return document.getElementById(id);}
 
-window.onload = () => {
-  $("input").oninput = () => {
-    let input = $("input").value
-    $("output").innerHTML = "";
-    parse(tokenize(input)).forEach(x=>$("output").appendChild(x));
-    window.history.replaceState(null,null,"?s=" + encodeURIComponent(input));
-  }
+function getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function update(){
+  let input = $("input").value
+  $("output").innerHTML = "";
+  parse(tokenize(input)).forEach(x=>$("output").appendChild(x));
+  window.history.replaceState(null,null,"?s=" + encodeURIComponent(input));
+}
+
+window.onload = function() {
+  $("input").value = getParam("s");
+  update();
+  $("input").oninput = update;
 }
