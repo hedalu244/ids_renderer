@@ -1,8 +1,17 @@
 .kanji {
   display: inline-block;
   font-size: 100px;
+  line-height: 100px;
   width: 100px;
   height: 100px;
   position: relative;
   transform-origin: top left;
+}
+
+.empty {
+  background-color: rgba(255, 179, 179)
+}
+
+#output {
+  margin: 20px;
 }

@@ -275,7 +275,8 @@ function parse(tokens) {
     if(node === undefined) {
       node = document.createElement("div");
       node.classList.add("kanji");
-      node.innerText = "□";
+      node.classList.add("empty");
+      node.innerText = "";
     }
     return node;
   }
